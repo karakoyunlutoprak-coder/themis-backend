@@ -36,6 +36,7 @@ const User = mongoose.model('User', userSchema);
 
 // ========== API ROTALARI ==========
 
+// Kayıt
 app.post('/api/register', async (req, res) => {
   try {
     const { email, password, userType } = req.body;
@@ -54,6 +55,7 @@ app.post('/api/register', async (req, res) => {
   }
 });
 
+// Giriş
 app.post('/api/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -70,6 +72,7 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
+// Kullanıcı bilgisi
 app.get('/api/user', async (req, res) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
@@ -82,6 +85,7 @@ app.get('/api/user', async (req, res) => {
   }
 });
 
+// Kullanım kontrolü
 app.post('/api/check-usage', async (req, res) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
@@ -117,6 +121,7 @@ app.post('/api/check-usage', async (req, res) => {
   }
 });
 
+// Kullanım artır
 app.post('/api/increment-usage', async (req, res) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
@@ -132,6 +137,7 @@ app.post('/api/increment-usage', async (req, res) => {
   }
 });
 
+// Plan satın al (simülasyon)
 app.post('/api/buy-plan', async (req, res) => {
   try {
     const { planType } = req.body;
@@ -164,6 +170,7 @@ app.post('/api/buy-plan', async (req, res) => {
   }
 });
 
+// Dosya analizi
 app.post('/api/analyze-file', async (req, res) => {
   try {
     const token = req.headers.authorization?.split(' ')[1];
